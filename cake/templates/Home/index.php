@@ -1,20 +1,34 @@
-<ul>
-     <?php foreach ($posts as $post) : ?>
-          <!-- <?php var_dump($post) ?> -->
-          <li><?php echo $post->id ?>: <?php echo $post->title ?> | author:<?php echo $post->user->firstname ?> -
-               <?php echo $post->user->lastName ?>
+<div class="sorts">
+     <span class="sort">Organizar por:</span>
+     <span class="sort">
+          <?php echo $this->Paginator->sort('firstName', 'Nome') ?>
+     </span>
+     <span class="sort">
+          | <?php echo $this->Paginator->sort('lastName', 'Sobrenome') ?>
 
-          </li>
+     </span>
+
+
+</div>
+
+<ul>
+     <?php foreach ($users as $user) : ?>
+          <!-- <?php var_dump($post) ?> -->
+          <li><?php echo $user->id ?>: <?php echo $user->firstname ?> | <?php echo $user->lastName ?> | posts:<?php echo count($user->posts) ?></li>
      <?php endforeach; ?>
 
 
 </ul>
-<hr>
-<ul>
-     <?php foreach ($users as $user) : ?>
-          <!-- <?php var_dump($post) ?> -->
-          <li><?php echo $user->id ?>: <?php echo $user->firstname ?> | posts:<?php echo count($user->posts) ?></li>
-     <?php endforeach; ?>
+
+<ul class="pagination">
+     <?php
+     echo $this->Paginator->first();
+     echo $this->Paginator->prev();
+     echo $this->Paginator->numbers();
+     echo $this->Paginator->next();
+     echo $this->Paginator->last();
+
+     ?>
 
 
 </ul>

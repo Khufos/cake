@@ -14,14 +14,25 @@ use Cake\ORM\TableRegistry;
 class HomeController extends AppController
 {
 
+
     public function index()
     {
-        $tablePosts= TableRegistry::getTableLocator()->get('Posts');
-        $posts = $tablePosts->find()->contain(['Users']);
-
+        // $tablePosts= TableRegistry::getTableLocator()->get('Posts');
+        // $query = $tablePosts->find()->contain(['Users']);
 
         $tableUsers = TableRegistry::getTableLocator()->get('Users');
-        $users= $tableUsers->find()->contain(['Posts']);
+        $query= $tableUsers->find()->contain(['Posts']);
+
+
+        $users = $this->paginate($query,['limit'=> 3]);
+
+    
+
+
+
+        
+        // $tableRoles = TableRegistry::getTableLocator()->get('Roles');
+        // $roles = $tableRoles->find()->contain(['Abilities']);
         // var_dump($posts);
         // die();
 
@@ -59,7 +70,7 @@ class HomeController extends AppController
         // var_dump($saved);
 
 
-        $this->set(compact('posts','users'));
+        $this->set(compact('users'));
 
 
         //var_dump($users);

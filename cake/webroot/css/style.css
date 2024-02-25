@@ -4,3 +4,18 @@
 body {
     font-family: 'Abel', sans-serif;
 }
+
+.sorts{
+  display: flex;
+}
+
+.sort{
+  padding: 5px;
+  background-color: antiquewhite;
+  margin-right: 5px;
+}
+
+.sort:nth-child(1){
+  background-color: brown;
+  color: white;
+}
