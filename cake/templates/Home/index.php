@@ -1,20 +1,17 @@
 <div class="sorts">
      <span class="sort">Organizar por:</span>
      <span class="sort">
-          <?php echo $this->Paginator->sort('firstName', 'Nome') ?>
+          <?php echo $this->Paginator->sort('firstName', 'Nome'); ?>
      </span>
      <span class="sort">
-          | <?php echo $this->Paginator->sort('lastName', 'Sobrenome') ?>
-
+          <?php echo $this->Paginator->sort('lastName', 'Sobrenome'); ?>
      </span>
-
-
 </div>
 
 <ul>
      <?php foreach ($users as $user) : ?>
-          <!-- <?php var_dump($post) ?> -->
-          <li><?php echo $user->id ?>: <?php echo $user->firstname ?> | <?php echo $user->lastName ?> | posts:<?php echo count($user->posts) ?></li>
+         
+          <li><?php echo $user->id ?>: <?php echo $user->firstname; ?>  <?php echo $user->lastName;?> | posts:<?php echo count($user->posts) ?></li>
      <?php endforeach; ?>
 
 
@@ -29,6 +26,8 @@
      echo $this->Paginator->last();
 
      ?>
+     <?= $this->Paginator->counter('range'); ?>
+     <?= $this->Paginator->counter('pages'); ?>
 
 
 </ul>
